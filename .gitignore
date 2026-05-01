@@ -1,0 +1,6 @@
+build
+node_modules
+.env
+coverage
+html
+generated/prisma

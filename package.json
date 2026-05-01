@@ -1,0 +1,52 @@
+{
+  "name": "find-a-friend-api",
+  "version": "1.0.0",
+  "description": "Esse projeto consiste no desenvolvimento de uma API REST chamada FindAFriend para um sistema de adoção de animais. O projeto deve ser construído reforçando os conceitos de SOLID e a prática de testes automatizados.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon",
+    "build": "tsup src --out-dir build",
+    "start": "node build/server.js",
+    "prisma:studio": "npx prisma studio --port 5555",
+    "lint": "eslint src --ext .ts --fix",
+    "test": "npm run vitest",
+    "test:watch": "npm run --watch vitest",
+    "test:coverage": "vitest --coverage",
+    "test:ui": "vitest --ui"
+  },
+  "keywords": [],
+  "author": "Rodolfo Silveira",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/bcryptjs": "2.4.6",
+    "@types/node": "25.6.0",
+    "@types/supertest": "7.2.0",
+    "@vitest/coverage-v8": "4.1.5",
+    "@vitest/ui": "4.1.5",
+    "eslint": "10.2.1",
+    "globals": "17.5.0",
+    "nodemon": "3.1.14",
+    "prisma": "7.8.0",
+    "supertest": "7.2.2",
+    "tsup": "8.5.1",
+    "tsx": "4.21.0",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.59.1",
+    "vite": "8.0.10",
+    "vite-tsconfig-paths": "6.1.1",
+    "vitest": "4.1.5"
+  },
+  "dependencies": {
+    "@fastify/cookie": "11.0.2",
+    "@fastify/jwt": "10.0.0",
+    "@prisma/adapter-pg": "7.8.0",
+    "@prisma/client": "7.8.0",
+    "bcryptjs": "3.0.3",
+    "dayjs": "1.11.20",
+    "dotenv": "17.4.2",
+    "fastify": "5.8.5",
+    "pg": "8.20.0",
+    "zod": "4.4.1"
+  }
+}
