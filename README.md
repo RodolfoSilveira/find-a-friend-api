@@ -1,8 +1,8 @@
-Esse projeto consiste no desenvolvimento de uma API REST chamada FindAFriend para um sistema de adoção de animais. O projeto deve ser construído reforçando os conceitos de SOLID e a prática de testes automatizados.
+# Esse projeto consiste no desenvolvimento de uma API REST chamada FindAFriend para um sistema de adoção de animais. O projeto deve ser construído reforçando os conceitos de SOLID e a prática de testes automatizados.
 
-A API deve seguir um conjunto de funcionalidades e regras de negócio.
+# A API deve seguir um conjunto de funcionalidades e regras de negócio.
 
-Funcionalidades da Aplicação
+## Funcionalidades da Aplicação
 
 []  O cadastro de um pet
 []  A listagem de todos os pets disponíveis para adoção em uma determinada cidade
@@ -11,9 +11,9 @@ Funcionalidades da Aplicação
 []  O cadastro de uma ORG (organização)
 []  O login de uma ORG no sistema
 
-Regras de Negócio
+# Regras de Negócio
 
-As seguintes condições devem ser implementadas:
+## As seguintes condições devem ser implementadas:
 
 []  A informação da cidade é obrigatória para listar os pets
 []  Uma ORG deve, obrigatoriamente, ter um endereço e um número de WhatsApp
@@ -22,7 +22,7 @@ As seguintes condições devem ser implementadas:
 []  Todos os filtros de características do pet, com exceção da cidade, são opcionais
 []  Para que uma ORG tenha acesso administrativo à aplicação, ela deve estar logada
 
-RNFs (Requisitos não funcionais)
+## RNFs (Requisitos não funcionais)
 
 [] Rota para cadastrar uma ORG, garantindo que inclua endereço e número de WhatsApp
 [] Rota de login para uma ORG
