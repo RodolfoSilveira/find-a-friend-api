@@ -23,7 +23,16 @@ export interface CreatePetsWithOrgsInput {
     org_id: string
 }
 
+export interface petParams {
+    age?: Age
+    size?: SIZE
+    energy_level?: ENERGY_LEVEL
+    level_of_independence?: LEVEL_OF_INDEPENDENCE
+    ambient?: AMBIENT
+}
+
 export interface petsRepository {
     create(data: CreatePetsWithOrgsInput): Promise<Pet>
     findById(id: string): Promise<PetProfile | null>
+    findAll(city: string, params?: petParams): Promise<PetProfile[]>
 }
