@@ -1,9 +1,13 @@
 import fastify from 'fastify'
 import fastifyJwt from '@fastify/jwt'
+import multipart from '@fastify/multipart'
+import fastifyStatic from '@fastify/static'
 import { env } from './env'
 import z, { ZodError } from 'zod'
 import { orgsRoutes } from './http/controllers/orgs/routes'
 import fastifyCookie from '@fastify/cookie'
+import { petsRoutes } from './http/controllers/pets/routes'
+import path from 'node:path'
 
 export const app = fastify()
 
@@ -19,8 +23,14 @@ app.register(fastifyJwt, {
 })
 
 app.register(fastifyCookie)
+app.register(multipart)
+app.register(fastifyStatic, {
+  root: path.resolve(process.cwd(), 'uploads'),
+  prefix: '/files/',
+})
 
 app.register(orgsRoutes)
+app.register(petsRoutes)
 
 app.setErrorHandler((error, _, reply) => {
   if (error instanceof ZodError) {
