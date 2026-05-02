@@ -3,10 +3,12 @@ import { FastifyInstance } from "fastify"
 import { register } from "./register"
 import { profile } from "./profile"
 import { search } from "./search"
+import { verifyOrgRole } from "@/http/middlewares/verify-org-rules"
 
 export async function petsRoutes(app: FastifyInstance) {
-  /** Authenticated */
-  app.post('/pets', { onRequest: [verifyJWT] }, register)
-  app.get('/pets/:id',  { onRequest: [verifyJWT] }, profile)
   app.get('/pets/search', search)
+  app.get('/pets/:id', profile)
+
+  /** Authenticated */
+  app.post('/pets', { onRequest: [verifyJWT, verifyOrgRole('ADMIN')] }, register)
 }
