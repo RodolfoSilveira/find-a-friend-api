@@ -5,7 +5,7 @@
 - [x]  O cadastro de um pet
 - []  A listagem de todos os pets disponíveis para adoção em uma determinada cidade
 - []  A filtragem de pets com base em suas características (como idade, porte, etc.)
-- []  A visualização dos detalhes de um pet específico
+- [x]  A visualização dos detalhes de um pet específico
 - [x]  O cadastro de uma ORG (organização)
 - [x]  O login de uma ORG no sistema
 
@@ -25,7 +25,7 @@
 - [x] Rota para cadastrar um pet, garantindo que ele seja associado a uma ORG
 - [] Rota para listar pets, exigindo a cidade como parâmetro obrigátorio
 - [] Implementar a funcionalidade de filtros opcionais por características dos pets na listagem
-- [] Rota para visualizar os detalhes de um pet específico
+- [x] Rota para visualizar os detalhes de um pet específico
 - [x] Garantir que o acesso de administrador da ORG seja restrito a usuário logados
 - [] Aplicar os princípios SOLID durante o desenvolvimento da estrutura da API
 - [] Criar testes para validar as funcionalidades e regras de negócio

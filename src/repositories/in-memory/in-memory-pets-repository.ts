@@ -1,8 +1,38 @@
 import { Pet } from "generated/prisma/client"
-import { CreatePetsWithOrgsInput, petsRepository } from "../pets-repository"
+import { CreatePetsWithOrgsInput, PetProfile, petsRepository } from "../pets-repository"
 
 export class InMemoryPetsRepository implements petsRepository {
   public items: Pet[] = []
+
+  async findById(id: string) {
+    const pet = this.items.find(item => item.id === id)
+
+    if (!pet) {
+      return null
+    }
+
+    const petProfile: PetProfile = {
+      id: pet.id,
+      name: pet.name,
+      description: pet.description,
+      age: pet.age,
+      size: pet.size,
+      energy_level: pet.energy_level,
+      level_of_independence: pet.level_of_independence,
+      ambient: pet.ambient,
+      photo: pet.photo,
+      requirement: pet.requirement,
+      org: {
+        id: pet.org_id,
+        name: '',
+        email: '',
+        phone: '',
+        addresses: [],
+      },
+    }
+
+    return petProfile
+  }
 
   async create(data: CreatePetsWithOrgsInput) {
     const pet = {

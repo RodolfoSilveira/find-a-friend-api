@@ -26,7 +26,7 @@ app.register(fastifyCookie)
 app.register(multipart)
 app.register(fastifyStatic, {
   root: path.resolve(process.cwd(), 'uploads'),
-  prefix: '/files/',
+  prefix: '/uploads/',
 })
 
 app.register(orgsRoutes)
