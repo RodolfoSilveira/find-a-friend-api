@@ -1,4 +1,8 @@
-import { Org } from "generated/prisma/client"
+import { Address, Org } from "generated/prisma/client"
+
+export type OrgWithAddresses = Org & {
+    addresses: Address[]
+}
 
 export interface CreateOrgWithAddressInput {
     name: string
@@ -12,6 +16,7 @@ export interface CreateOrgWithAddressInput {
 }
 
 export interface orgsRepository {
+    findById(id: string): Promise<OrgWithAddresses | null>
     findByEmail(email: string): Promise<Org | null>
     createWithAddress(data: CreateOrgWithAddressInput): Promise<Org>
 }

@@ -4,6 +4,19 @@ import { Org, ROLE } from "generated/prisma/client"
 export class InMemoryOrgsRepository implements orgsRepository {
   public items: Org[] = []
 
+  async findById(id: string) {
+    const org = this.items.find(item => item.id === id)
+
+    if (!org) {
+      return null
+    }
+
+    return {
+      ...org,
+      addresses: [],
+    }
+  }
+
   async findByEmail(email: string) {
     const org = this.items.find(item => item.email === email)
 

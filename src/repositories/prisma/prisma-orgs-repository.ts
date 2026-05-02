@@ -2,6 +2,19 @@ import { CreateOrgWithAddressInput, orgsRepository } from "../orgs-repository"
 import { prisma } from "@/lib/prisma"
 
 export class PrismaOrgsRepository implements orgsRepository {
+  async findById(id: string) {
+    const org = await prisma.org.findFirst({
+      where: {
+        id
+      },
+      include: {
+        addresses: true,
+      }
+    })
+
+    return org
+  }
+
   async findByEmail(email: string) {
     const org = await prisma.org.findUnique({
       where: {
