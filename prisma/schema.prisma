@@ -11,3 +11,81 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+enum ROLE {
+  ADMIN
+  MEMBER
+}
+
+enum Age {
+  PUPPY
+  ADULT
+  ELDER
+}
+
+enum SIZE {
+  SMALL
+  LARGE
+}
+
+enum ENERGY_LEVEL {
+  SMALL
+  NORMAL
+  GREAT
+}
+
+enum LEVEL_OF_INDEPENDENCE {
+  SMALL
+  LARGE
+}
+
+enum AMBIENT {
+  SMALL
+  NORMAL
+  LARGE
+}
+
+model Org {
+  id            String    @id @default(uuid())
+  name          String
+  email         String    @unique
+  phone         String
+  role          ROLE      @default(MEMBER)
+  password_hash String
+  created_at    DateTime  @default(now())
+  addresses     Address[]
+  pets          Pet[]
+
+  @@map("orgs")
+}
+
+model Address {
+  id         String   @id @default(uuid())
+  cep        String
+  street     String
+  city       String
+  state      String
+  org        Org      @relation(fields: [org_id], references: [id])
+  org_id     String
+  created_at DateTime @default(now())
+
+  @@map("addresses")
+}
+
+model Pet {
+  id                    String       @id @default(uuid())
+  name                  String
+  description           String
+  age                   Age
+  size                  SIZE
+  energy_level          ENERGY_LEVEL
+  level_of_independence LEVEL_OF_INDEPENDENCE
+  ambient               AMBIENT
+  photo                 String
+  requirement           String
+  org                   Org          @relation(fields: [org_id], references: [id])
+  org_id                String
+  created_at            DateTime     @default(now())
+
+  @@map("pets")
+}

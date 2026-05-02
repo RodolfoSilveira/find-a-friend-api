@@ -9,10 +9,7 @@
     "start": "node build/server.js",
     "prisma:studio": "npx prisma studio --port 5555",
     "lint": "eslint src --ext .ts --fix",
-    "test": "npm run vitest",
-    "test:watch": "npm run --watch vitest",
-    "test:coverage": "vitest --coverage",
-    "test:ui": "vitest --ui"
+    "test": "vitest"
   },
   "keywords": [],
   "author": "Rodolfo Silveira",
