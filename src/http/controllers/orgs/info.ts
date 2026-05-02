@@ -10,7 +10,7 @@ export async function info(request: FastifyRequest, reply: FastifyReply) {
       id: request.user.sub
     })
 
-    return reply.status(201).send({ 
+    return reply.status(200).send({ 
       org: {
         ...org,
         role: undefined,
